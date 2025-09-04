@@ -614,10 +614,10 @@ python -m pytest tests/performance/ --benchmark-only
 ## 📞 Support & Community
 
 ### **Getting Help**
-- 📚 **Documentation**: [GitHub Wiki](https://github.com/your-repo/mx-tweaks-pro/wiki)
-- 🐛 **Bug Reports**: [GitHub Issues](https://github.com/your-repo/mx-tweaks-pro/issues)
-- 💬 **Discussions**: [GitHub Discussions](https://github.com/your-repo/mx-tweaks-pro/discussions)
-- 📧 **Email**: support@mx-tweaks-pro.com
+- 📚 **Documentation**: [GitHub Wiki](https://github.com/WHO-AM-I-404/mx-tweaks-pro/wiki)
+- 🐛 **Bug Reports**: [GitHub Issues](https://github.com/WHO-AM-I-404/mx-tweaks-pro/issues)
+- 💬 **Discussions**: [GitHub Discussions](https://github.com/WHO-AM-I-404/mx-tweaks-pro/discussions)
+- 📧 **Email**: mxtweaks@gmail.com
 
 ### **Community**
 - 🌐 **MX Linux Forum**: [MX Linux Community](https://mxlinux.org/forum)
