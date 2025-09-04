@@ -25,7 +25,7 @@ MX Tweaks Pro adalah utility tweaking canggih untuk MX Linux yang dibuat dengan 
 │   └── utils/
 │       ├── __init__.py
 │       └── logger.py         # Setup logging
-└── replit.md                 # Dokumentasi proyek
+└── README.md                 # Dokumentasi proyek
 ```
 
 ## Tweaks yang Tersedia
