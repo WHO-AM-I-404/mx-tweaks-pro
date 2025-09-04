@@ -1,1 +1,673 @@
-# MX Tweaks Pro v2.1\n\n## 🚀 Advanced System Optimization Utility for MX Linux\n\n**MX Tweaks Pro** adalah utility tweaking canggih yang dirancang khusus untuk MX Linux. Aplikasi ini menyediakan berbagai optimasi sistem, keamanan, jaringan, dan tampilan dalam satu platform yang terintegrasi dengan interface CLI, TUI, dan GUI.\n\n---\n\n## ✨ Fitur Utama\n\n### 🖥️ **Multiple Interface Options**\n- **CLI Mode**: Command Line Interface dengan Rich library\n- **TUI Mode**: Terminal User Interface dengan dialog interaktif\n- **GUI Mode**: Graphical User Interface dengan tkinter\n\n### 🔧 **System Tweaks**\n- Nonaktifkan Swap untuk optimasi SSD\n- Bersihkan Package Cache dan temporary files\n- Optimasi Boot Time dengan disable unnecessary services\n- Fix broken packages secara otomatis\n- Advanced system profiling dan benchmark\n\n### 🚀 **Performance Optimization**\n- CPU Governor management (performance/powersave)\n- Memory tuning dengan swappiness optimization\n- I/O Scheduler optimization berdasarkan jenis disk\n- Preload installation untuk faster app loading\n- Real-time performance monitoring\n\n### 🎨 **Appearance Tweaks**\n- Automatic dark/light theme application\n- Font rendering optimization dengan anti-aliasing\n- Desktop compositor configuration\n- Panel transparency settings\n- Icon themes installation\n- Wallpaper slideshow automation\n\n### 🌐 **Network Optimization**\n- TCP stack optimization dengan BBR congestion control\n- DNS resolution optimization dengan fast DNS servers\n- Network buffer tuning untuk better performance\n- WiFi power management optimization\n- Firewall configuration dengan UFW\n- Network benchmark tools\n\n### 🔒 **Security Hardening**\n- SSH server hardening dengan modern ciphers\n- Automatic security updates configuration\n- Fail2Ban intrusion prevention setup\n- Kernel security parameter tuning\n- Comprehensive security audit tools\n- Advanced firewall rules management\n\n### 💾 **Backup & Restore System**\n- Automated backup scheduling (daily/weekly/custom)\n- Selective backup options (config/home/system)\n- Incremental backup support\n- Backup integrity verification\n- Easy restore functionality\n- Cloud backup integration ready\n\n### 🔌 **Plugin Architecture**\n- Modular plugin system untuk extensibility\n- Hot-swappable plugins tanpa restart\n- Plugin dependency management\n- Custom plugin development API\n- Built-in plugin manager\n\n---\n\n## 📋 System Requirements\n\n### **Minimum Requirements:**\n- **OS**: MX Linux 19.x atau yang lebih baru\n- **RAM**: 1 GB (2 GB recommended)\n- **Storage**: 100 MB free space\n- **Python**: Python 3.8+\n- **Privileges**: sudo access untuk system tweaks\n\n### **Dependencies:**\n```bash\n# Core dependencies\npython3 >= 3.8\npython3-pip\nsudo access\n\n# Python packages (auto-installed)\nrich >= 13.0.0\nclick >= 8.0.0\npsutil >= 5.8.0\nconfigparser\nschedule\n\n# Optional GUI dependencies\npython3-tk  # untuk GUI mode\n\n# System packages\nufw          # untuk firewall management\nfail2ban     # untuk intrusion prevention\ndialog       # untuk TUI mode\n```\n\n---\n\n## 🔧 Installation\n\n### **Method 1: Quick Install (Recommended)**\n```bash\n# Download dan install\ncurl -fsSL https://raw.githubusercontent.com/your-repo/mx-tweaks-pro/main/install.sh | bash\n\n# Atau manual download\nwget -O install.sh https://raw.githubusercontent.com/your-repo/mx-tweaks-pro/main/install.sh\nchmod +x install.sh\n./install.sh\n```\n\n### **Method 2: Manual Install**\n```bash\n# Clone repository\ngit clone https://github.com/your-repo/mx-tweaks-pro.git\ncd mx-tweaks-pro\n\n# Install dependencies\nsudo apt update\nsudo apt install python3 python3-pip python3-tk dialog ufw\n\n# Install Python packages\npip3 install -r requirements.txt\n\n# Make executable\nchmod +x mx-tweaks-pro\nsudo ln -sf $(pwd)/mx-tweaks-pro /usr/local/bin/mx-tweaks-pro\n```\n\n### **Method 3: Development Install**\n```bash\n# Clone dengan development branch\ngit clone -b development https://github.com/your-repo/mx-tweaks-pro.git\ncd mx-tweaks-pro\n\n# Setup development environment\npython3 -m venv venv\nsource venv/bin/activate\npip install -r requirements-dev.txt\n\n# Install in development mode\npip install -e .\n```\n\n---\n\n## 🚀 Usage Guide\n\n### **Basic Usage**\n```bash\n# Launch dengan interface default (CLI)\nmx-tweaks-pro\n\n# Specific interface modes\nmx-tweaks-pro --cli      # Command Line Interface\nmx-tweaks-pro --tui      # Terminal User Interface \nmx-tweaks-pro --gui      # Graphical User Interface\n\n# Debug mode\nmx-tweaks-pro --debug\n\n# Show help\nmx-tweaks-pro --help\n```\n\n### **CLI Mode Commands**\n```bash\n# System optimization\nmx-tweaks-pro system --optimize\nmx-tweaks-pro system --cleanup\nmx-tweaks-pro system --benchmark\n\n# Performance tweaks\nmx-tweaks-pro performance --cpu-governor performance\nmx-tweaks-pro performance --memory-tune\nmx-tweaks-pro performance --io-optimize\n\n# Network optimization\nmx-tweaks-pro network --optimize-tcp\nmx-tweaks-pro network --dns-optimize\nmx-tweaks-pro network --benchmark\n\n# Security hardening\nmx-tweaks-pro security --harden-ssh\nmx-tweaks-pro security --setup-firewall\nmx-tweaks-pro security --audit\n\n# Appearance tweaks\nmx-tweaks-pro appearance --dark-theme\nmx-tweaks-pro appearance --optimize-fonts\nmx-tweaks-pro appearance --transparency 80\n\n# Backup operations\nmx-tweaks-pro backup --create \"my-backup\"\nmx-tweaks-pro backup --schedule daily\nmx-tweaks-pro backup --list\n\n# Plugin management\nmx-tweaks-pro plugins --list\nmx-tweaks-pro plugins --load custom-plugin\nmx-tweaks-pro plugins --install /path/to/plugin\n```\n\n### **Configuration File**\n```bash\n# Main config location\n~/.mx-tweaks-pro/config.ini\n\n# Backup settings\n~/.mx-tweaks-pro/backups/\n\n# Plugin directory\n~/.mx-tweaks-pro/plugins/\n\n# Logs\n~/.mx-tweaks-pro/logs/\n```\n\n### **Example Config (config.ini)**\n```ini\n[general]\ninterface = cli\ndebug = false\nbackup_before_tweaks = true\n\n[system]\nauto_cleanup = true\noptimize_boot = true\nswap_management = auto\n\n[performance] \ncpu_governor = performance\nswappiness = 10\nio_scheduler = mq-deadline\n\n[network]\ntcp_optimization = true\ndns_servers = 1.1.1.1,8.8.8.8\nfirewall_enabled = true\n\n[security]\nssh_hardening = true\nauto_updates = true\nfail2ban_enabled = true\n\n[appearance]\ntheme = dark\nfont_optimization = true\npanel_transparency = 80\n\n[backup]\nschedule = daily\ntime = 02:00\ninclude_home = false\ninclude_system = true\ncompression = gzip\nretention_days = 30\n\n[plugins]\nauto_load = monitoring,themes\ndisabled = \n```\n\n---\n\n## 🎯 Feature Documentation\n\n### **System Tweaks**\n\n#### **Disable Swap**\n```bash\n# Temporary disable\nsudo swapoff -a\n\n# Permanent disable (edited in /etc/fstab)\n# Backup fstab first\nsudo cp /etc/fstab /etc/fstab.backup\nsudo sed -i '/swap/s/^/#/' /etc/fstab\n```\n\n#### **Package Cache Cleanup**\n```bash\n# APT cache cleanup\nsudo apt clean\nsudo apt autoclean\nsudo apt autoremove\n\n# Orphaned packages removal\nsudo deborphan | xargs sudo apt-get -y remove --purge\n```\n\n#### **Boot Time Optimization**\n```bash\n# Analyze boot time\nsystemd-analyze\nsystemd-analyze blame\n\n# Disable unnecessary services\nsudo systemctl disable bluetooth.service\nsudo systemctl disable cups.service\n# (services selected based on system analysis)\n```\n\n### **Performance Optimization**\n\n#### **CPU Governor Management**\n```bash\n# Check current governor\ncat /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor\n\n# Set performance mode\necho 'performance' | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor\n\n# Make permanent\necho 'GOVERNOR=\"performance\"' | sudo tee /etc/default/cpufrequtils\n```\n\n#### **Memory Optimization**\n```bash\n# Optimize swappiness (default: 60, recommended: 10)\necho 'vm.swappiness = 10' | sudo tee -a /etc/sysctl.conf\n\n# Cache pressure adjustment\necho 'vm.vfs_cache_pressure = 50' | sudo tee -a /etc/sysctl.conf\n\n# Dirty ratio optimization\necho 'vm.dirty_ratio = 15' | sudo tee -a /etc/sysctl.conf\necho 'vm.dirty_background_ratio = 5' | sudo tee -a /etc/sysctl.conf\n```\n\n#### **I/O Scheduler Optimization**\n```bash\n# Check current scheduler\ncat /sys/block/sda/queue/scheduler\n\n# For SSD (recommended: mq-deadline or none)\necho mq-deadline | sudo tee /sys/block/sda/queue/scheduler\n\n# For HDD (recommended: bfq)\necho bfq | sudo tee /sys/block/sda/queue/scheduler\n\n# Make permanent via kernel parameters\n# Add to GRUB_CMDLINE_LINUX in /etc/default/grub:\n# elevator=mq-deadline (for SSD)\n# elevator=bfq (for HDD)\n```\n\n### **Network Optimization**\n\n#### **TCP Stack Optimization**\n```bash\n# TCP congestion control (BBR - best performance)\necho 'net.core.default_qdisc = fq' | sudo tee -a /etc/sysctl.conf\necho 'net.ipv4.tcp_congestion_control = bbr' | sudo tee -a /etc/sysctl.conf\n\n# TCP window scaling\necho 'net.ipv4.tcp_window_scaling = 1' | sudo tee -a /etc/sysctl.conf\necho 'net.ipv4.tcp_timestamps = 1' | sudo tee -a /etc/sysctl.conf\n\n# Buffer sizes\necho 'net.core.rmem_max = 134217728' | sudo tee -a /etc/sysctl.conf\necho 'net.core.wmem_max = 134217728' | sudo tee -a /etc/sysctl.conf\necho 'net.ipv4.tcp_rmem = 4096 87380 134217728' | sudo tee -a /etc/sysctl.conf\necho 'net.ipv4.tcp_wmem = 4096 65536 134217728' | sudo tee -a /etc/sysctl.conf\n```\n\n#### **DNS Optimization**\n```bash\n# Fast DNS servers configuration\necho 'nameserver 1.1.1.1' | sudo tee /etc/resolv.conf\necho 'nameserver 1.0.0.1' >> /etc/resolv.conf\necho 'nameserver 8.8.8.8' >> /etc/resolv.conf\necho 'nameserver 8.8.4.4' >> /etc/resolv.conf\necho 'options timeout:2 attempts:3 rotate single-request-reopen' >> /etc/resolv.conf\n\n# Test DNS speed\ndig @1.1.1.1 google.com\ndig @8.8.8.8 google.com\n```\n\n### **Security Hardening**\n\n#### **SSH Hardening**\n```bash\n# Backup original config\nsudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.backup\n\n# Key security settings applied:\n# - Disable root login\n# - Use strong ciphers only\n# - Limit authentication attempts\n# - Enable key-based authentication\n# - Disable weak authentication methods\n\n# Test configuration\nsudo sshd -t\n\n# Restart service\nsudo systemctl restart sshd\n```\n\n#### **Firewall Configuration**\n```bash\n# UFW basic setup\nsudo ufw default deny incoming\nsudo ufw default allow outgoing\nsudo ufw allow ssh\nsudo ufw allow http\nsudo ufw allow https\nsudo ufw limit ssh  # Rate limiting\nsudo ufw enable\n\n# Status check\nsudo ufw status verbose\n```\n\n#### **Fail2Ban Setup**\n```bash\n# Install Fail2Ban\nsudo apt install fail2ban\n\n# Configuration applied:\n# - SSH brute force protection\n# - Apache/Nginx protection\n# - Ban time: 3600 seconds\n# - Max retry: 3 attempts\n# - Find time: 600 seconds\n\n# Status check\nsudo fail2ban-client status\nsudo fail2ban-client status sshd\n```\n\n### **Backup System**\n\n#### **Manual Backup**\n```bash\n# Create backup\nmx-tweaks-pro backup --create \"manual-backup-$(date +%Y%m%d)\"\n\n# Backup with options\nmx-tweaks-pro backup --create \"full-backup\" --include-home --include-system\n\n# List backups\nmx-tweaks-pro backup --list\n\n# Restore backup\nmx-tweaks-pro backup --restore \"backup-name\"\n```\n\n#### **Scheduled Backup**\n```bash\n# Daily backup at 2 AM\nmx-tweaks-pro backup --schedule daily --time \"02:00\" --name \"daily-config\"\n\n# Weekly backup\nmx-tweaks-pro backup --schedule weekly --time \"03:00\" --name \"weekly-full\" --include-home\n\n# Custom interval (every 6 hours)\nmx-tweaks-pro backup --schedule \"every_6_hours\" --name \"frequent-config\"\n\n# List scheduled backups\nmx-tweaks-pro backup --list-schedules\n\n# Remove schedule\nmx-tweaks-pro backup --remove-schedule \"schedule-id\"\n```\n\n---\n\n## 🔌 Plugin Development\n\n### **Creating a Custom Plugin**\n\n#### **1. Basic Plugin Structure**\n```python\n#!/usr/bin/env python3\n\"\"\"\nCustom Plugin for MX Tweaks Pro\n\"\"\"\n\nfrom src.plugin_system import PluginInterface\nfrom typing import Dict, Any, Callable\n\nclass MyCustomPlugin(PluginInterface):\n    @property\n    def name(self) -> str:\n        return \"My Custom Plugin\"\n    \n    @property\n    def version(self) -> str:\n        return \"1.0.0\"\n    \n    @property\n    def description(self) -> str:\n        return \"A custom plugin example\"\n    \n    @property\n    def author(self) -> str:\n        return \"Your Name\"\n    \n    @property\n    def category(self) -> str:\n        return \"customization\"\n    \n    def initialize(self) -> bool:\n        self.logger.info(f\"Initializing {self.name}\")\n        return True\n    \n    def execute(self, *args, **kwargs) -> Any:\n        self.console.print(f\"[green]Executing {self.name}[/green]\")\n        return {\"status\": \"success\", \"message\": \"Plugin executed successfully\"}\n    \n    def cleanup(self) -> bool:\n        self.logger.info(f\"Cleaning up {self.name}\")\n        return True\n    \n    def get_commands(self) -> Dict[str, Callable]:\n        return {\n            \"hello\": self.hello_command,\n            \"config\": self.config_command\n        }\n    \n    def hello_command(self, name: str = \"World\"):\n        self.console.print(f\"[cyan]Hello, {name}![/cyan]\")\n        return f\"Hello, {name}!\"\n    \n    def config_command(self):\n        self.console.print(\"[yellow]Plugin configuration...[/yellow]\")\n        return {\"config\": \"example\"}\n```\n\n#### **2. Plugin Directory Structure**\n```\n~/.mx-tweaks-pro/plugins/my-plugin/\n├── __init__.py          # Plugin main file\n├── plugin.json         # Plugin manifest\n├── config/            # Plugin configuration\n│   └── default.json\n├── assets/           # Plugin assets\n│   └── icon.png\n└── docs/            # Plugin documentation\n    └── README.md\n```\n\n#### **3. Plugin Manifest (plugin.json)**\n```json\n{\n    \"id\": \"my-plugin\",\n    \"name\": \"My Custom Plugin\",\n    \"version\": \"1.0.0\",\n    \"description\": \"A comprehensive custom plugin\",\n    \"author\": \"Your Name\",\n    \"email\": \"your.email@example.com\",\n    \"category\": \"customization\",\n    \"tags\": [\"utility\", \"customization\", \"tweaks\"],\n    \"dependencies\": [],\n    \"system_dependencies\": [],\n    \"permissions\": [\"read\", \"write\"],\n    \"config_schema\": {\n        \"enabled\": {\"type\": \"boolean\", \"default\": true},\n        \"timeout\": {\"type\": \"integer\", \"default\": 30},\n        \"custom_option\": {\"type\": \"string\", \"default\": \"value\"}\n    },\n    \"commands\": {\n        \"hello\": \"Say hello\",\n        \"config\": \"Show plugin configuration\"\n    }\n}\n```\n\n#### **4. Installing and Using Custom Plugin**\n```bash\n# Install plugin\nmx-tweaks-pro plugins --install ~/.mx-tweaks-pro/plugins/my-plugin\n\n# Load plugin\nmx-tweaks-pro plugins --load my-plugin\n\n# Execute plugin command\nmx-tweaks-pro plugins --execute \"my-plugin.hello\" --args \"MX Linux\"\n\n# List plugin commands\nmx-tweaks-pro plugins --commands\n\n# Plugin management\nmx-tweaks-pro plugins --enable-autoload my-plugin\nmx-tweaks-pro plugins --disable my-plugin\nmx-tweaks-pro plugins --unload my-plugin\nmx-tweaks-pro plugins --remove my-plugin\n```\n\n---\n\n## 🐛 Troubleshooting\n\n### **Common Issues**\n\n#### **1. Permission Denied Errors**\n```bash\n# Ensure user is in sudo group\nsudo usermod -aG sudo $USER\n\n# Re-login or use newgrp\nnewgrp sudo\n\n# Check sudo access\nsudo -l\n```\n\n#### **2. Python Dependencies Issues**\n```bash\n# Update pip\npython3 -m pip install --upgrade pip\n\n# Install dependencies with user flag\npip3 install --user rich click psutil configparser schedule\n\n# Fix missing tkinter\nsudo apt install python3-tk\n```\n\n#### **3. GUI Mode Not Working**\n```bash\n# Install GUI dependencies\nsudo apt install python3-tk\n\n# Check X11 forwarding (for SSH)\nexport DISPLAY=:0\nxauth list\n\n# Test tkinter\npython3 -c \"import tkinter; tkinter.Tk().mainloop()\"\n```\n\n#### **4. Service Start Failures**\n```bash\n# Check service status\nsudo systemctl status mx-tweaks-scheduler\n\n# View service logs\njournalctl -u mx-tweaks-scheduler -f\n\n# Restart service\nsudo systemctl restart mx-tweaks-scheduler\n```\n\n#### **5. Backup Failures**\n```bash\n# Check disk space\ndf -h\n\n# Check permissions\nls -la ~/.mx-tweaks-pro/backups/\n\n# Create backup directory manually\nmkdir -p ~/.mx-tweaks-pro/backups\nchmod 755 ~/.mx-tweaks-pro/backups\n```\n\n#### **6. Network Optimization Issues**\n```bash\n# Verify sysctl changes\nsudo sysctl -p\n\n# Check current TCP congestion control\nsysctl net.ipv4.tcp_congestion_control\n\n# Test network performance\niperf3 -c iperf.he.net\n```\n\n### **Debug Mode**\n```bash\n# Enable debug logging\nmx-tweaks-pro --debug\n\n# Check log files\ntail -f ~/.mx-tweaks-pro/logs/mx-tweaks.log\n\n# Verbose system information\nmx-tweaks-pro system --info --verbose\n```\n\n### **Reset Configuration**\n```bash\n# Backup current config\ncp ~/.mx-tweaks-pro/config.ini ~/.mx-tweaks-pro/config.ini.backup\n\n# Reset to defaults\nrm ~/.mx-tweaks-pro/config.ini\nmx-tweaks-pro --reset-config\n\n# Or manual reset\nmx-tweaks-pro config --reset --confirm\n```\n\n---\n\n## 🚀 Advanced Usage\n\n### **Automation Scripts**\n\n#### **1. Complete System Optimization**\n```bash\n#!/bin/bash\n# complete-optimization.sh\n\necho \"Starting complete MX Linux optimization...\"\n\n# System tweaks\nmx-tweaks-pro system --cleanup\nmx-tweaks-pro system --optimize-boot\nmx-tweaks-pro system --fix-packages\n\n# Performance optimization\nmx-tweaks-pro performance --cpu-governor performance\nmx-tweaks-pro performance --memory-tune\nmx-tweaks-pro performance --io-optimize\n\n# Network optimization\nmx-tweaks-pro network --optimize-tcp\nmx-tweaks-pro network --dns-optimize\n\n# Security hardening\nmx-tweaks-pro security --harden-ssh\nmx-tweaks-pro security --setup-firewall\nmx-tweaks-pro security --enable-fail2ban\n\n# Appearance optimization\nmx-tweaks-pro appearance --dark-theme\nmx-tweaks-pro appearance --optimize-fonts\n\n# Create backup\nmx-tweaks-pro backup --create \"post-optimization-$(date +%Y%m%d)\"\n\necho \"Optimization complete! Please reboot for all changes to take effect.\"\n```\n\n#### **2. Monitoring Script**\n```bash\n#!/bin/bash\n# system-monitor.sh\n\nwhile true; do\n    clear\n    echo \"MX Tweaks Pro - System Monitor\"\n    echo \"==============================\"\n    \n    # System status\n    mx-tweaks-pro system --status\n    \n    # Network status\n    mx-tweaks-pro network --status\n    \n    # Security status\n    mx-tweaks-pro security --status\n    \n    sleep 30\ndone\n```\n\n#### **3. Maintenance Script**\n```bash\n#!/bin/bash\n# weekly-maintenance.sh\n\necho \"Weekly system maintenance starting...\"\n\n# System cleanup\nmx-tweaks-pro system --cleanup\nmx-tweaks-pro system --update-packages\n\n# Security audit\nmx-tweaks-pro security --audit\n\n# Performance check\nmx-tweaks-pro performance --benchmark\n\n# Create maintenance backup\nmx-tweaks-pro backup --create \"weekly-maintenance-$(date +%Y%m%d)\"\n\n# Cleanup old backups (keep last 4 weeks)\nmx-tweaks-pro backup --cleanup --keep 28\n\necho \"Weekly maintenance complete!\"\n```\n\n### **Integration dengan System Services**\n\n#### **1. Systemd Service untuk Monitoring**\n```ini\n# /etc/systemd/system/mx-tweaks-monitor.service\n[Unit]\nDescription=MX Tweaks Pro System Monitor\nAfter=network.target\n\n[Service]\nType=simple\nUser=root\nExecStart=/usr/local/bin/mx-tweaks-pro monitor --daemon\nRestart=always\nRestartSec=10\n\n[Install]\nWantedBy=multi-user.target\n```\n\n#### **2. Cron Jobs untuk Automation**\n```bash\n# Add to crontab (crontab -e)\n# Daily cleanup at 3 AM\n0 3 * * * /usr/local/bin/mx-tweaks-pro system --cleanup --quiet\n\n# Weekly maintenance on Sunday at 2 AM\n0 2 * * 0 /usr/local/bin/mx-tweaks-pro maintenance --weekly\n\n# Monthly security audit on 1st at 1 AM\n0 1 1 * * /usr/local/bin/mx-tweaks-pro security --audit --report\n\n# Backup every 6 hours\n0 */6 * * * /usr/local/bin/mx-tweaks-pro backup --create \"auto-$(date +%Y%m%d-%H%M)\"\n```\n\n---\n\n## 🤝 Contributing\n\n### **Development Setup**\n```bash\n# Fork repository di GitHub\ngit clone https://github.com/YOUR_USERNAME/mx-tweaks-pro.git\ncd mx-tweaks-pro\n\n# Create development branch\ngit checkout -b feature/your-feature-name\n\n# Setup development environment\npython3 -m venv venv\nsource venv/bin/activate\npip install -r requirements-dev.txt\n\n# Install pre-commit hooks\npre-commit install\n\n# Run tests\npython -m pytest tests/\n\n# Code formatting\nblack src/\nflake8 src/\n\n# Type checking\nmypy src/\n```\n\n### **Code Style Guidelines**\n```python\n# Use type hints\ndef optimize_system(config: Dict[str, Any]) -> bool:\n    pass\n\n# Use docstrings\ndef create_backup(name: str) -> Dict[str, Any]:\n    \"\"\"\n    Create system backup with specified name.\n    \n    Args:\n        name: Backup name identifier\n        \n    Returns:\n        Dict containing backup information and status\n    \"\"\"\n    pass\n\n# Use rich console for output\nfrom rich.console import Console\nconsole = Console()\nconsole.print(\"[green]Operation successful[/green]\")\n\n# Proper error handling\ntry:\n    result = risky_operation()\nexcept Exception as e:\n    logger.error(f\"Operation failed: {e}\")\n    console.print(f\"[red]Error: {e}[/red]\")\n    return False\n```\n\n### **Testing**\n```bash\n# Run all tests\npython -m pytest\n\n# Run specific test\npython -m pytest tests/test_system_tweaks.py\n\n# Coverage report\npython -m pytest --cov=src --cov-report=html\n\n# Performance testing\npython -m pytest tests/performance/ --benchmark-only\n```\n\n### **Pull Request Process**\n1. Fork the repository\n2. Create feature branch\n3. Make changes with tests\n4. Ensure all tests pass\n5. Update documentation\n6. Submit pull request\n7. Code review process\n8. Merge after approval\n\n---\n\n## 📄 License\n\n**MX Tweaks Pro** is licensed under the **MIT License**.\n\n```\nMIT License\n\nCopyright (c) 2024 MX Tweaks Pro Contributors\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPlIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n```\n\n---\n\n## 🌟 Changelog\n\n### **v2.1.0** (Latest) - 2024-12-XX\n\n#### ✨ **New Features:**\n- **GUI Mode**: Complete tkinter-based graphical interface\n- **Advanced Backup System**: Automated scheduling with incremental backups\n- **Plugin Architecture**: Modular plugin system for extensibility\n- **Appearance Tweaks**: Desktop customization and theme management\n- **Network Optimization**: TCP stack optimization and DNS tuning\n- **Security Hardening**: Comprehensive security audit and hardening\n- **Real-time Monitoring**: System performance monitoring\n- **Benchmark Engine**: Built-in system benchmarking tools\n\n#### 🔧 **Improvements:**\n- Enhanced CLI interface with rich formatting\n- Better error handling and logging\n- Improved configuration management\n- Advanced system profiling\n- Plugin hot-swapping capabilities\n- Multi-language support foundation\n\n#### 🐛 **Bug Fixes:**\n- Fixed memory optimization edge cases\n- Resolved GUI responsiveness issues\n- Improved backup integrity verification\n- Fixed plugin dependency resolution\n- Enhanced error reporting\n\n#### 🔒 **Security:**\n- SSH hardening with modern ciphers\n- Kernel security parameter tuning\n- Fail2Ban integration\n- Automatic security updates\n- Security audit reporting\n\n---\n\n### **v2.0.0** - 2024-11-XX\n\n#### ✨ **Major Release:**\n- Complete rewrite with modular architecture\n- CLI, TUI, and GUI interface support\n- Advanced system tweaks and optimizations\n- Performance monitoring and benchmarking\n- Backup and restore functionality\n- Configuration management system\n\n#### 🚀 **Performance:**\n- 300% faster system scans\n- Reduced memory footprint\n- Optimized I/O operations\n- Parallel processing support\n\n---\n\n### **v1.2.0** - 2024-10-XX\n\n#### ✨ **Features:**\n- Added TUI mode with dialog support\n- System cleanup improvements\n- Package management integration\n- Basic backup functionality\n\n#### 🔧 **Improvements:**\n- Better error handling\n- Enhanced logging system\n- Improved user interface\n- Configuration file support\n\n---\n\n### **v1.1.0** - 2024-09-XX\n\n#### ✨ **Features:**\n- Performance tweaks module\n- CPU governor management\n- Memory optimization\n- I/O scheduler optimization\n\n#### 🐛 **Bug Fixes:**\n- Fixed swap management issues\n- Resolved service conflicts\n- Improved compatibility\n\n---\n\n### **v1.0.0** - 2024-09-XX\n\n#### 🎉 **Initial Release:**\n- Basic system tweaks\n- CLI interface\n- Configuration management\n- System cleanup tools\n- MX Linux optimization\n\n---\n\n## 📞 Support & Community\n\n### **Getting Help**\n- 📚 **Documentation**: [GitHub Wiki](https://github.com/your-repo/mx-tweaks-pro/wiki)\n- 🐛 **Bug Reports**: [GitHub Issues](https://github.com/your-repo/mx-tweaks-pro/issues)\n- 💬 **Discussions**: [GitHub Discussions](https://github.com/your-repo/mx-tweaks-pro/discussions)\n- 📧 **Email**: mx-tweaks-pro@example.com\n\n### **Community**\n- 🌐 **MX Linux Forum**: [MX Linux Community](https://mxlinux.org/forum)\n- 💬 **Discord**: [Join our Discord](https://discord.gg/mx-tweaks-pro)\n- 📱 **Telegram**: [@mx_tweaks_pro](https://t.me/mx_tweaks_pro)\n- 🐦 **Twitter**: [@MXTweaksPro](https://twitter.com/MXTweaksPro)\n\n### **Contributing**\n- 🔧 **Development**: See [CONTRIBUTING.md](CONTRIBUTING.md)\n- 🌐 **Translation**: Help translate to your language\n- 📝 **Documentation**: Improve documentation\n- 🐛 **Testing**: Report bugs and test features\n- 💝 **Donate**: Support development\n\n---\n\n## ⭐ Star History\n\n[![Star History Chart](https://api.star-history.com/svg?repos=your-repo/mx-tweaks-pro&type=Date)](https://star-history.com/#your-repo/mx-tweaks-pro&Date)\n\n---\n\n## 🙏 Acknowledgments\n\n### **Special Thanks:**\n- **MX Linux Team** - For creating an excellent Linux distribution\n- **Python Community** - For amazing libraries and tools\n- **Rich Library** - For beautiful CLI interfaces\n- **Contributors** - All developers who contributed to this project\n- **Beta Testers** - Community members who helped test and improve\n- **Translators** - Making MX Tweaks Pro accessible worldwide\n\n### **Libraries Used:**\n- [Rich](https://github.com/Textualize/rich) - Terminal formatting\n- [Click](https://github.com/pallets/click) - Command line interfaces\n- [psutil](https://github.com/giampaolo/psutil) - System monitoring\n- [schedule](https://github.com/dbader/schedule) - Task scheduling\n- [tkinter](https://docs.python.org/3/library/tkinter.html) - GUI framework\n\n---\n\n**Made with ❤️ for MX Linux Community**\n\n*Optimize your MX Linux experience with MX Tweaks Pro v2.1 - The Ultimate System Optimization Tool*\n\n---\n\n## 📋 Quick Reference\n\n```bash\n# Quick Start Commands\nmx-tweaks-pro                    # Launch default interface\nmx-tweaks-pro --gui             # Launch GUI mode\nmx-tweaks-pro system --optimize # Quick system optimization\nmx-tweaks-pro backup --create   # Create backup\nmx-tweaks-pro plugins --list    # List available plugins\n\n# Configuration\n~/.mx-tweaks-pro/config.ini     # Main configuration\n~/.mx-tweaks-pro/backups/       # Backup storage\n~/.mx-tweaks-pro/plugins/       # Plugin directory\n~/.mx-tweaks-pro/logs/          # Log files\n\n# Support\nGitHub: https://github.com/your-repo/mx-tweaks-pro\nEmail: support@mx-tweaks-pro.com\nDocs: https://mx-tweaks-pro.readthedocs.io\n```\n\n**Happy Optimizing! 🚀**
+# MX Tweaks Pro v2.1
+
+## 🚀 Advanced System Optimization Utility for MX Linux
+
+**MX Tweaks Pro** is an advanced tweaking utility designed specifically for MX Linux. This application provides comprehensive system optimization, security hardening, network tuning, and appearance customization in one integrated platform with CLI, TUI, and GUI interfaces.
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![MX Linux](https://img.shields.io/badge/MX%20Linux-19.x+-green.svg)](https://mxlinux.org/)
+
+---
+
+## ✨ Key Features
+
+### 🖥️ **Multiple Interface Options**
+- **CLI Mode**: Command Line Interface with Rich library formatting
+- **TUI Mode**: Terminal User Interface with interactive dialogs
+- **GUI Mode**: Graphical User Interface built with tkinter
+
+### 🔧 **System Tweaks**
+- Disable swap for SSD optimization
+- Clean package cache and temporary files
+- Optimize boot time by disabling unnecessary services
+- Automatically fix broken packages
+- Advanced system profiling and benchmarking
+
+### 🚀 **Performance Optimization**
+- CPU Governor management (performance/powersave modes)
+- Memory tuning with swappiness optimization
+- I/O Scheduler optimization based on disk type
+- Preload installation for faster application loading
+- Real-time performance monitoring
+
+### 🎨 **Appearance Tweaks**
+- Automatic dark/light theme application
+- Font rendering optimization with anti-aliasing
+- Desktop compositor configuration
+- Panel transparency settings
+- Icon theme installation
+- Automated wallpaper slideshows
+
+### 🌐 **Network Optimization**
+- TCP stack optimization with BBR congestion control
+- DNS resolution optimization with fast DNS servers
+- Network buffer tuning for better performance
+- WiFi power management optimization
+- Firewall configuration with UFW
+- Network benchmark tools
+
+### 🔒 **Security Hardening**
+- SSH server hardening with modern ciphers
+- Automatic security updates configuration
+- Fail2Ban intrusion prevention setup
+- Kernel security parameter tuning
+- Comprehensive security audit tools
+- Advanced firewall rules management
+
+### 💾 **Backup & Restore System**
+- Automated backup scheduling (daily/weekly/custom intervals)
+- Selective backup options (config/home/system files)
+- Incremental backup support
+- Backup integrity verification
+- Easy restore functionality
+- Cloud backup integration ready
+
+### 🔌 **Plugin Architecture**
+- Modular plugin system for extensibility
+- Hot-swappable plugins without restart
+- Plugin dependency management
+- Custom plugin development API
+- Built-in plugin manager
+
+---
+
+## 📋 System Requirements
+
+### **Minimum Requirements:**
+- **OS**: MX Linux 19.x or newer
+- **RAM**: 1 GB (2 GB recommended)
+- **Storage**: 100 MB free space
+- **Python**: Python 3.8+
+- **Privileges**: sudo access for system tweaks
+
+### **Dependencies:**
+```bash
+# Core dependencies
+python3 >= 3.8
+python3-pip
+sudo access
+
+# Python packages (auto-installed)
+rich >= 13.0.0
+click >= 8.0.0
+psutil >= 5.8.0
+configparser
+schedule
+
+# Optional GUI dependencies
+python3-tk  # for GUI mode
+
+# System packages
+ufw          # for firewall management
+fail2ban     # for intrusion prevention
+dialog       # for TUI mode
+```
+
+---
+
+## 🔧 Installation
+
+### **Method 1: Quick Install (Recommended)**
+```bash
+# Download and install
+curl -fsSL https://raw.githubusercontent.com/your-repo/mx-tweaks-pro/main/install.sh | bash
+
+# Or manual download
+wget -O install.sh https://raw.githubusercontent.com/your-repo/mx-tweaks-pro/main/install.sh
+chmod +x install.sh
+./install.sh
+```
+
+### **Method 2: Manual Installation**
+```bash
+# Clone repository
+git clone https://github.com/your-repo/mx-tweaks-pro.git
+cd mx-tweaks-pro
+
+# Install dependencies
+sudo apt update
+sudo apt install python3 python3-pip python3-tk dialog ufw
+
+# Install Python packages
+pip3 install -r requirements.txt
+
+# Make executable
+chmod +x mx-tweaks-pro
+sudo ln -sf $(pwd)/mx-tweaks-pro /usr/local/bin/mx-tweaks-pro
+```
+
+### **Method 3: Development Installation**
+```bash
+# Clone with development branch
+git clone -b development https://github.com/your-repo/mx-tweaks-pro.git
+cd mx-tweaks-pro
+
+# Setup development environment
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements-dev.txt
+
+# Install in development mode
+pip install -e .
+```
+
+---
+
+## 🚀 Usage Guide
+
+### **Basic Usage**
+```bash
+# Launch with default interface (CLI)
+mx-tweaks-pro
+
+# Specific interface modes
+mx-tweaks-pro --cli      # Command Line Interface
+mx-tweaks-pro --tui      # Terminal User Interface 
+mx-tweaks-pro --gui      # Graphical User Interface
+
+# Debug mode
+mx-tweaks-pro --debug
+
+# Show help
+mx-tweaks-pro --help
+```
+
+### **CLI Mode Commands**
+```bash
+# System optimization
+mx-tweaks-pro system --optimize
+mx-tweaks-pro system --cleanup
+mx-tweaks-pro system --benchmark
+
+# Performance tweaks
+mx-tweaks-pro performance --cpu-governor performance
+mx-tweaks-pro performance --memory-tune
+mx-tweaks-pro performance --io-optimize
+
+# Network optimization
+mx-tweaks-pro network --optimize-tcp
+mx-tweaks-pro network --dns-optimize
+mx-tweaks-pro network --benchmark
+
+# Security hardening
+mx-tweaks-pro security --harden-ssh
+mx-tweaks-pro security --setup-firewall
+mx-tweaks-pro security --audit
+
+# Appearance tweaks
+mx-tweaks-pro appearance --dark-theme
+mx-tweaks-pro appearance --optimize-fonts
+mx-tweaks-pro appearance --transparency 80
+
+# Backup operations
+mx-tweaks-pro backup --create "my-backup"
+mx-tweaks-pro backup --schedule daily
+mx-tweaks-pro backup --list
+
+# Plugin management
+mx-tweaks-pro plugins --list
+mx-tweaks-pro plugins --load custom-plugin
+mx-tweaks-pro plugins --install /path/to/plugin
+```
+
+### **Configuration**
+```bash
+# Configuration locations
+~/.mx-tweaks-pro/config.ini    # Main configuration
+~/.mx-tweaks-pro/backups/      # Backup settings
+~/.mx-tweaks-pro/plugins/      # Plugin directory
+~/.mx-tweaks-pro/logs/         # Log files
+```
+
+### **Example Configuration (config.ini)**
+```ini
+[general]
+interface = cli
+debug = false
+backup_before_tweaks = true
+
+[system]
+auto_cleanup = true
+optimize_boot = true
+swap_management = auto
+
+[performance] 
+cpu_governor = performance
+swappiness = 10
+io_scheduler = mq-deadline
+
+[network]
+tcp_optimization = true
+dns_servers = 1.1.1.1,8.8.8.8
+firewall_enabled = true
+
+[security]
+ssh_hardening = true
+auto_updates = true
+fail2ban_enabled = true
+
+[appearance]
+theme = dark
+font_optimization = true
+panel_transparency = 80
+
+[backup]
+schedule = daily
+time = 02:00
+include_home = false
+include_system = true
+compression = gzip
+retention_days = 30
+
+[plugins]
+auto_load = monitoring,themes
+disabled = 
+```
+
+---
+
+## 🎯 Feature Documentation
+
+### **System Tweaks**
+
+#### **Disable Swap**
+- Temporarily disable swap for better SSD performance
+- Permanent disable with automatic `/etc/fstab` backup
+- Configurable swap management policies
+
+#### **Package Cache Cleanup**
+- APT cache cleanup and optimization
+- Orphaned package removal
+- Automatic cleanup scheduling
+
+#### **Boot Time Optimization**
+- Analyze boot performance with systemd-analyze
+- Disable unnecessary services based on system analysis
+- Service conflict detection and resolution
+
+### **Performance Optimization**
+
+#### **CPU Governor Management**
+- Dynamic CPU frequency scaling control
+- Performance vs power saving modes
+- Per-core governor configuration support
+
+#### **Memory Optimization**
+- Swappiness tuning (recommended: 10 for desktop)
+- Cache pressure adjustment
+- Dirty page ratio optimization for better I/O performance
+
+#### **I/O Scheduler Optimization**
+- Automatic detection of SSD vs HDD
+- Optimal scheduler selection (mq-deadline for SSD, BFQ for HDD)
+- Custom scheduler parameters tuning
+
+### **Network Optimization**
+
+#### **TCP Stack Optimization**
+- BBR congestion control for better performance
+- TCP window scaling and timestamps
+- Buffer size optimization for high-bandwidth connections
+
+#### **DNS Optimization**
+- Fast DNS server configuration (Cloudflare, Google)
+- DNS caching and timeout optimization
+- Performance testing and monitoring
+
+### **Security Hardening**
+
+#### **SSH Hardening**
+- Disable root login and weak authentication
+- Modern cipher suites only
+- Rate limiting and connection restrictions
+
+#### **Firewall Configuration**
+- UFW-based firewall setup with sensible defaults
+- Service-specific rules (SSH, HTTP, HTTPS)
+- Rate limiting for SSH connections
+
+#### **Fail2Ban Integration**
+- Brute force protection for SSH and web services
+- Configurable ban times and retry limits
+- Comprehensive monitoring and alerting
+
+---
+
+## 🔌 Plugin Development
+
+### **Creating a Custom Plugin**
+
+```python
+#!/usr/bin/env python3
+"""
+Custom Plugin for MX Tweaks Pro
+"""
+
+from src.plugin_system import PluginInterface
+from typing import Dict, Any, Callable
+
+class MyCustomPlugin(PluginInterface):
+    @property
+    def name(self) -> str:
+        return "My Custom Plugin"
+    
+    @property
+    def version(self) -> str:
+        return "1.0.0"
+    
+    @property
+    def description(self) -> str:
+        return "A custom plugin example"
+    
+    def initialize(self) -> bool:
+        self.logger.info(f"Initializing {self.name}")
+        return True
+    
+    def execute(self, *args, **kwargs) -> Any:
+        self.console.print(f"[green]Executing {self.name}[/green]")
+        return {"status": "success", "message": "Plugin executed successfully"}
+    
+    def get_commands(self) -> Dict[str, Callable]:
+        return {
+            "hello": self.hello_command,
+            "config": self.config_command
+        }
+    
+    def hello_command(self, name: str = "World"):
+        self.console.print(f"[cyan]Hello, {name}![/cyan]")
+        return f"Hello, {name}!"
+```
+
+### **Plugin Installation**
+```bash
+# Install plugin
+mx-tweaks-pro plugins --install ~/.mx-tweaks-pro/plugins/my-plugin
+
+# Load and execute
+mx-tweaks-pro plugins --load my-plugin
+mx-tweaks-pro plugins --execute "my-plugin.hello" --args "MX Linux"
+```
+
+---
+
+## 🐛 Troubleshooting
+
+### **Common Issues**
+
+#### **Permission Denied Errors**
+```bash
+# Ensure user is in sudo group
+sudo usermod -aG sudo $USER
+newgrp sudo
+
+# Check sudo access
+sudo -l
+```
+
+#### **Python Dependencies Issues**
+```bash
+# Update pip
+python3 -m pip install --upgrade pip
+
+# Install with user flag
+pip3 install --user rich click psutil configparser schedule
+
+# Fix missing tkinter
+sudo apt install python3-tk
+```
+
+#### **GUI Mode Not Working**
+```bash
+# Install GUI dependencies
+sudo apt install python3-tk
+
+# Test tkinter
+python3 -c "import tkinter; tkinter.Tk().mainloop()"
+```
+
+### **Debug Mode**
+```bash
+# Enable debug logging
+mx-tweaks-pro --debug
+
+# Check log files
+tail -f ~/.mx-tweaks-pro/logs/mx-tweaks.log
+
+# Reset configuration
+mx-tweaks-pro config --reset --confirm
+```
+
+---
+
+## 🚀 Advanced Usage
+
+### **Automation Scripts**
+
+#### **Complete System Optimization**
+```bash
+#!/bin/bash
+# complete-optimization.sh
+
+echo "Starting complete MX Linux optimization..."
+
+# System tweaks
+mx-tweaks-pro system --cleanup
+mx-tweaks-pro system --optimize-boot
+mx-tweaks-pro system --fix-packages
+
+# Performance optimization
+mx-tweaks-pro performance --cpu-governor performance
+mx-tweaks-pro performance --memory-tune
+mx-tweaks-pro performance --io-optimize
+
+# Network optimization
+mx-tweaks-pro network --optimize-tcp
+mx-tweaks-pro network --dns-optimize
+
+# Security hardening
+mx-tweaks-pro security --harden-ssh
+mx-tweaks-pro security --setup-firewall
+
+# Create backup
+mx-tweaks-pro backup --create "post-optimization-$(date +%Y%m%d)"
+
+echo "Optimization complete! Please reboot for all changes to take effect."
+```
+
+### **Systemd Integration**
+```ini
+# /etc/systemd/system/mx-tweaks-monitor.service
+[Unit]
+Description=MX Tweaks Pro System Monitor
+After=network.target
+
+[Service]
+Type=simple
+User=root
+ExecStart=/usr/local/bin/mx-tweaks-pro monitor --daemon
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
+```
+
+### **Cron Automation**
+```bash
+# Add to crontab (crontab -e)
+# Daily cleanup at 3 AM
+0 3 * * * /usr/local/bin/mx-tweaks-pro system --cleanup --quiet
+
+# Weekly maintenance on Sunday at 2 AM
+0 2 * * 0 /usr/local/bin/mx-tweaks-pro maintenance --weekly
+
+# Backup every 6 hours
+0 */6 * * * /usr/local/bin/mx-tweaks-pro backup --create "auto-$(date +%Y%m%d-%H%M)"
+```
+
+---
+
+## 🤝 Contributing
+
+### **Development Setup**
+```bash
+# Fork and clone repository
+git clone https://github.com/YOUR_USERNAME/mx-tweaks-pro.git
+cd mx-tweaks-pro
+
+# Create development branch
+git checkout -b feature/your-feature-name
+
+# Setup development environment
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements-dev.txt
+
+# Install pre-commit hooks
+pre-commit install
+
+# Run tests
+python -m pytest tests/
+```
+
+### **Code Style Guidelines**
+- Use type hints for all functions
+- Follow PEP 8 style guidelines
+- Write comprehensive docstrings
+- Use Rich console for user output
+- Implement proper error handling
+- Write unit tests for new features
+
+### **Testing**
+```bash
+# Run all tests
+python -m pytest
+
+# Coverage report
+python -m pytest --cov=src --cov-report=html
+
+# Performance testing
+python -m pytest tests/performance/ --benchmark-only
+```
+
+### **Pull Request Process**
+1. Fork the repository
+2. Create a feature branch
+3. Make changes with comprehensive tests
+4. Ensure all tests pass
+5. Update documentation
+6. Submit pull request
+7. Address code review feedback
+8. Merge after approval
+
+---
+
+## 📄 License
+
+**MX Tweaks Pro** is licensed under the **MIT License**. See [LICENSE](LICENSE) file for details.
+
+---
+
+## 🌟 Changelog
+
+### **v2.1.0** (Latest)
+
+#### ✨ **New Features:**
+- Complete GUI Mode with tkinter interface
+- Advanced Backup System with automated scheduling
+- Plugin Architecture for extensibility
+- Appearance Tweaks for desktop customization
+- Network Optimization suite
+- Security Hardening toolkit
+- Real-time System Monitoring
+- Built-in Benchmark Engine
+
+#### 🔧 **Improvements:**
+- Enhanced CLI interface with rich formatting
+- Better error handling and logging
+- Improved configuration management
+- Advanced system profiling capabilities
+- Plugin hot-swapping support
+
+#### 🐛 **Bug Fixes:**
+- Fixed memory optimization edge cases
+- Resolved GUI responsiveness issues
+- Improved backup integrity verification
+- Enhanced plugin dependency resolution
+
+### **v2.0.0**
+- Complete rewrite with modular architecture
+- Multiple interface support (CLI/TUI/GUI)
+- Advanced system optimization toolkit
+- Performance monitoring and benchmarking
+- Backup and restore functionality
+
+### **v1.0.0**
+- Initial release with basic system tweaks
+- CLI interface support
+- Configuration management
+- MX Linux optimization tools
+
+---
+
+## 📞 Support & Community
+
+### **Getting Help**
+- 📚 **Documentation**: [GitHub Wiki](https://github.com/your-repo/mx-tweaks-pro/wiki)
+- 🐛 **Bug Reports**: [GitHub Issues](https://github.com/your-repo/mx-tweaks-pro/issues)
+- 💬 **Discussions**: [GitHub Discussions](https://github.com/your-repo/mx-tweaks-pro/discussions)
+- 📧 **Email**: support@mx-tweaks-pro.com
+
+### **Community**
+- 🌐 **MX Linux Forum**: [MX Linux Community](https://mxlinux.org/forum)
+- 💬 **Discord**: [Join our Discord](https://discord.gg/mx-tweaks-pro)
+- 🐦 **Twitter**: [@MXTweaksPro](https://twitter.com/MXTweaksPro)
+
+---
+
+## 🙏 Acknowledgments
+
+### **Special Thanks:**
+- **MX Linux Team** - For creating an excellent Linux distribution
+- **Python Community** - For amazing libraries and tools
+- **Contributors** - All developers who contributed to this project
+- **Beta Testers** - Community members who helped test and improve
+
+### **Libraries Used:**
+- [Rich](https://github.com/Textualize/rich) - Terminal formatting
+- [Click](https://github.com/pallets/click) - Command line interfaces
+- [psutil](https://github.com/giampaolo/psutil) - System monitoring
+- [schedule](https://github.com/dbader/schedule) - Task scheduling
+
+---
+
+## 📋 Quick Reference
+
+```bash
+# Quick Start Commands
+mx-tweaks-pro                    # Launch default interface
+mx-tweaks-pro --gui             # Launch GUI mode
+mx-tweaks-pro system --optimize # Quick system optimization
+mx-tweaks-pro backup --create   # Create backup
+mx-tweaks-pro plugins --list    # List available plugins
+
+# Configuration Files
+~/.mx-tweaks-pro/config.ini     # Main configuration
+~/.mx-tweaks-pro/backups/       # Backup storage
+~/.mx-tweaks-pro/plugins/       # Plugin directory
+~/.mx-tweaks-pro/logs/          # Log files
+
+# Support
+GitHub: https://github.com/your-repo/mx-tweaks-pro
+Email: support@mx-tweaks-pro.com
+Documentation: https://mx-tweaks-pro.readthedocs.io
+```
+
+---
+
+**Made with ❤️ for the MX Linux Community**
+
+*Optimize your MX Linux experience with MX Tweaks Pro v2.1 - The Ultimate System Optimization Tool*
+
+**Happy Optimizing! 🚀**
