@@ -1,0 +1,64 @@
+#!/usr/bin/env python3
+"""
+MX Tweaks Pro v2.1 - Advanced Linux System Optimization Utility
+Executable entry point with root access detection
+"""
+
+import sys
+import os
+from pathlib import Path
+
+# Add the current directory to Python path
+script_dir = Path(__file__).parent
+sys.path.insert(0, str(script_dir))
+
+# Also try system installation path if local not found
+system_path = Path('/usr/share/mx-tweaks-pro')
+if system_path.exists():
+    sys.path.insert(0, str(system_path))
+
+def show_installation_help():
+    """Show installation help message"""
+    from rich.console import Console
+    from rich.panel import Panel
+    
+    console = Console()
+    console.print(Panel(
+        "[bold red]❌ MX Tweaks Pro is not properly installed[/bold red]\n\n"
+        "[yellow]To install MX Tweaks Pro:[/yellow]\n"
+        "1. Download or clone the repository\n"
+        "2. Run: [cyan]chmod +x setup.sh[/cyan]\n"
+        "3. Run: [cyan]sudo ./setup.sh[/cyan]\n\n"
+        "[yellow]Or install manually:[/yellow]\n"
+        "1. Copy files to [cyan]/usr/share/mx-tweaks-pro/[/cyan]\n"
+        "2. Link executable: [cyan]sudo ln -sf /usr/share/mx-tweaks-pro/mx-tweaks-pro /usr/local/bin/[/cyan]",
+        title="🛠️ Installation Required",
+        border_style="red"
+    ))
+
+if __name__ == "__main__":
+    try:
+        # Import and run main
+        from main import main
+        main()
+    except ImportError as e:
+        # Handle missing main.py gracefully
+        try:
+            from rich.console import Console
+            console = Console()
+            console.print(f"[red]❌ Import error: {e}[/red]")
+            show_installation_help()
+        except ImportError:
+            # Fallback to basic print if rich is not available
+            print(f"❌ Import error: {e}")
+            print("❌ MX Tweaks Pro is not properly installed.")
+            print("📖 Please run: sudo ./setup.sh")
+        sys.exit(1)
+    except Exception as e:
+        try:
+            from rich.console import Console
+            console = Console()
+            console.print(f"[red]❌ Unexpected error: {e}[/red]")
+        except ImportError:
+            print(f"❌ Unexpected error: {e}")
+        sys.exit(1)
