@@ -619,20 +619,7 @@ python -m pytest tests/performance/ --benchmark-only
 - 💬 **Discussions**: [GitHub Discussions](https://github.com/WHO-AM-I-404/mx-tweaks-pro/discussions)
 - 📧 **Email**: mxtweaks@gmail.com
 
-### **Community**
-- 🌐 **MX Linux Forum**: [MX Linux Community](https://mxlinux.org/forum)
-- 💬 **Discord**: [Join our Discord](https://discord.gg/mx-tweaks-pro)
-- 🐦 **Twitter**: [@MXTweaksPro](https://twitter.com/MXTweaksPro)
-
 ---
-
-## 🙏 Acknowledgments
-
-### **Special Thanks:**
-- **MX Linux Team** - For creating an excellent Linux distribution
-- **Python Community** - For amazing libraries and tools
-- **Contributors** - All developers who contributed to this project
-- **Beta Testers** - Community members who helped test and improve
 
 ### **Libraries Used:**
 - [Rich](https://github.com/Textualize/rich) - Terminal formatting
@@ -659,15 +646,14 @@ mx-tweaks-pro plugins --list    # List available plugins
 ~/.mx-tweaks-pro/logs/          # Log files
 
 # Support
-GitHub: https://github.com/your-repo/mx-tweaks-pro
-Email: support@mx-tweaks-pro.com
-Documentation: https://mx-tweaks-pro.readthedocs.io
+GitHub: https://github.com/WHO-AM-I-404/mx-tweaks-pro
+Email: mxtweaks@gmail.com
 ```
 
 ---
 
 **Made with ❤️ for the MX Linux Community**
 
-*Optimize your MX Linux experience with MX Tweaks Pro v2.1 - The Ultimate System Optimization Tool*
+*Optimize your MX Linux experience with MX Tweaks Pro v2.1*
 
 **Happy Optimizing! 🚀**
